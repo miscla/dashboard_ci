@@ -649,8 +649,6 @@
                       <td style="padding-top:15px;"><?php echo $row->total_manfaat_ditangguhkan ?></td>
                       <td style="padding-top:15px;"><?php echo $row->tgl_awal_tangguhan ?></td>
                       <td style="width:200px">
-                        <a class="button is-success" href="<?php echo base_url()."index.php/rute/tangguhan_edit/".$row->nik;;?>">Edit</a>
-                        <a class="button is-danger" href="<?php echo base_url()."index.php/rute/tangguhan_delete/".$row->nik;;?>">Delete</a>
                         <a href="<?php echo base_url()."index.php/rute/tangguhan_detail/".$row->nik;;?>" class="button is-link" >Detail</a>
                       </td>
                     </tr>

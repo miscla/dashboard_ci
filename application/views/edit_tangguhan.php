@@ -367,9 +367,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                        if($months <= 6 && $months > 0) {
-                          $total_orang = $total_orang + count($row->nik);
-                        }
+                          if($months <= 6) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -391,9 +391,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 6 && $months <= 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 6 && $months <= 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -415,9 +415,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -457,9 +457,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months <= 6 && $months > 0) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months <= 6) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -481,9 +481,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 6 && $months <= 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 6 && $months <= 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -505,9 +505,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -547,9 +547,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months <= 6 && $months > 0) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months <= 6) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -571,9 +571,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 6 && $months <= 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 6 && $months <= 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -595,9 +595,9 @@
                           $jumlah = $date2 - $date1;
                           $days = $jumlah / 86400;
                           $months = $days / 30;
-                      if($months > 12) {
-                        $total_orang = $total_orang + count($row->nik);
-                      }
+                          if($months > 12) {
+                            $total_orang = $total_orang + count($row->nik);
+                          }
                         }
                       }
                       echo $total_orang;
@@ -615,51 +615,94 @@
               <label class="label">Data Tangguhan</label>
             </div>
             <div class="panel-block column is-12">
-              <table id="fullfeatures" class="table is-striped is-bordered" cellspacing="0" width="100%">
-                <thead>
-                  <tr>
-                    <th>Nama</th>
-                    <th>Jenis Tangguhan</th>
-                    <th style="width: 200px;">Total Manfaat yang ditangguhan</th>
-                    <th>Awal Tangguhan</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th colspan="2">Jumlah</th>
-                    <?php
-                              $total = 0;
+              <form method="POST" action="<?php echo base_url()."index.php/rute/tangguhan_update"; ?>">
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">NIK</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nik" value="<?php 
+                        foreach($query as $row) {
+                          echo $row->nik;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                              foreach($query as $row) {
-                                $total = $total + $row->total_manfaat_ditangguhkan;
-                              }
-                              ?>
-                    <th><?php echo $total; ?></th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <?php 
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Nama</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded has-icons-left">
+                        <input class="input" type="text" name="nama_pensiun" value="<?php 
+                        foreach($query as $row) {
+                          echo $row->nama_pensiun;
+                        } ?>">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-user"></i>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                  foreach($query as $row) {
-                    ?>
-                    <tr>
-                      <td style="padding-top:15px;"><?php echo $row->nama_pensiun ?></td>
-                      <td style="padding-top:15px;"><?php echo $row->jenis_tangguhan ?></td>
-                      <td style="padding-top:15px;"><?php echo $row->total_manfaat_ditangguhkan ?></td>
-                      <td style="padding-top:15px;"><?php echo $row->tgl_awal_tangguhan ?></td>
-                      <td style="width:200px">
-                        <a class="button is-success" href="<?php echo base_url()."index.php/rute/tangguhan_edit/".$row->nik;;?>">Edit</a>
-                        <a class="button is-danger" href="<?php echo base_url()."index.php/rute/tangguhan_delete/".$row->nik;;?>">Delete</a>
-                        <a href="<?php echo base_url()."index.php/rute/tangguhan_detail/".$row->nik;;?>" class="button is-link" >Detail</a>
-                      </td>
-                    </tr>
-                    <?php
-                  }
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Jenis Tangguhan</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field is-narrow">
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select name="jenis_tangguhan">
+                            <option value="janda/duda">Janda/Duda</option>
+                            <option value="ilang">Pensiunan Ilang</option>
+                            <option value="dll">Dan Lain-lain</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                  ?>
-                </tbody>
-              </table>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Awal Tangguhan</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field is-narrow">
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <input class="input" type="date" value="<?php 
+                          foreach($query as $row) {
+                            echo $row->tgl_awal_tangguhan;
+                          } ?>" name="tgl_awal_tangguhan">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal">
+                  <div class="field-label">
+                    <!-- Left empty for spacing -->
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control">
+                        <button class="button is-primary">
+                          Ubah Data
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -814,22 +857,22 @@
           <p>Are you sure you want to delete this element?</p>
           <ul class="cd-buttons ul_1">
             <li class="li_1"><a id="a_1" href="#">Yes</a></li>
-              <li class="li_1"><a id="a_1" href="#0">No</a></li>
-            </ul>
-            <a id="a_1" href="#0" class="cd-popup-close img-replace">Close</a>
-          </div> <!-- cd-popup-container -->
-        </div> <!-- cd-popup -->
-      </main>
-    </div>
+            <li class="li_1"><a id="a_1" href="#0">No</a></li>
+          </ul>
+          <a id="a_1" href="#0" class="cd-popup-close img-replace">Close</a>
+        </div> <!-- cd-popup-container -->
+      </div> <!-- cd-popup -->
+    </main>
   </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>js/dataTables.bulma.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/dataTables.bulma.min.js"></script>
 
-  <script>
-    jQuery(document).ready(function($){
+<script>
+  jQuery(document).ready(function($){
         //open popup
         $('.cd-popup-trigger').on('click', function(event){
           event.preventDefault();

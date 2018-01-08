@@ -96,34 +96,113 @@
             Filter Pada All Table
           </p>
           <ul class="menu-list">
-          <form action="<?php echo base_url()."index.php/rute/filter_iuran"; ?>" method="POST">
+          <form action="<?php echo base_url(); ?>index.php/rute/filter_iuran" method="post">
             <nav class="panel">
                 <a class="panel-block" style="">
                     Sisa Iuran Maksimal
                     <div class="control" style="">
                         <div class="select is-fullwidth">
-                            <select name="sisa">
-                                <option value="0.1">10%</option>
-                                <option value="0.2">20%</option>
-                                <option value="0.3">30%</option>
-                                <option value="0.4">40%</option>
-                                <option value="0.5">50%</option>
-                                <option value="0.6">60%</option>
-                                <option value="0.7">70%</option>
-                                <option value="0.8">80%</option>
-                                <option value="0.9">90%</option>
-                                <option value="0.1">100%</option>
+                            <select id="sisa" >
+                                <option value="10">10%</option>
+                                <option value="20">20%</option>
+                                <option value="30">30%</option>
+                                <option value="40">40%</option>
+                                <option value="50">50%</option>
+                                <option value="60">60%</option>
+                                <option value="70">70%</option>
+                                <option value="80">80%</option>
+                                <option value="90">90%</option>
+                                <option value="100">100%</option>
                             </select>
                         </div>
                     </div>
                 </a>
                 <a class="panel-block" style="">
-                    Rentang Terakhir Setoran
+                    Rentang Iuran
                     <div class="columns">
-                        <div class="column is-12">
+                        <div class="column is-5">
                             <div class="control" style="">
-                                <input class="input" type="date" id="awalTgl" name="awalTgl">
+                                <div class="select">
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
                             </div>
+                        </div>
+                        <div class="column is-7">
+                            <div class="control" style="">
+                                <div class="select">
+                                    <select>
+                                        <option>2010</option>
+                                        <option>2011</option>
+                                        <option>2012</option>
+                                        <option>2013</option>
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top:-15px; margin-bottom:10px;">Sampai</p>
+                    <div class="columns">
+                        <div class="column is-5">
+                            <div class="control" style="">
+                                <div class="select">
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-7">
+                            <div class="control" style="">
+                                <div class="select">
+                                    <select>
+                                        <option>2010</option>
+                                        <option>2011</option>
+                                        <option>2012</option>
+                                        <option>2013</option>
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="panel-block" style="">
+                    Tunggakan
+                    <div class="control" style="">
+                        <div class="select is-fullwidth">
+                            <select>
+                                <option>Ya</option>
+                                <option>Tidak</option>
+                            </select>
                         </div>
                     </div>
                 </a>
@@ -318,10 +397,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.js"></script>
-  <script src="<?php echo base_url();?>js/jquery.maskedinput.js"></script>
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url();?>js/dataTables.bulma.min.js"></script>
-
+  
   <script>
       $(document).ready(function() {
 		    $('#iuran').DataTable({

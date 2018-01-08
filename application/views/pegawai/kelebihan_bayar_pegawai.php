@@ -406,8 +406,6 @@
                       echo $row->status_kunjungan_sem1;
                     } ?></td>
                     <td style="width:200px">
-                      <a class="button is-success" id="formEdit">Edit</a>
-                      <a class="button is-danger cd-popup-trigger">Delete</a>
                       <a class="button is-link" id="formDetail">Detail</a>
                     </td>
                   </tr>
@@ -434,8 +432,6 @@
                       echo $row->status_kunjungan_sem1;
                     } ?></td>
                     <td style="width:200px">
-                      <a class="button is-success" id="formEdit">Edit</a>
-                      <a class="button is-danger cd-popup-trigger">Delete</a>
                       <a class="button is-link" id="formDetail">Detail</a>
                     </td>
                   </tr>

@@ -17,11 +17,11 @@
   
   <script src="<?php echo base_url();?>js/Chart.bundle.js"></script>
   
-    <script src="<?php echo base_url();?>js/Chart.bundle.min.js"></script>
+  <script src="<?php echo base_url();?>js/Chart.bundle.min.js"></script>
   
-    <script src="<?php echo base_url();?>js/Chart.js"></script>
-    
-    <script src="<?php echo base_url();?>js/Chart.min.js"></script>
+  <script src="<?php echo base_url();?>js/Chart.js"></script>
+
+  <script src="<?php echo base_url();?>js/Chart.min.js"></script>
 
   <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -130,34 +130,6 @@
           </a>
         </div>
 
-        <div class="navbar-brand" id="navMenu">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">              
-              Pemasukan Iuran
-            </a>
-
-            <div class="navbar-dropdown is-right">              
-              <a class="navbar-item">
-                Sudah Iuran
-              </a>
-              <a class="navbar-item">
-                Belum Iuran
-              </a>
-              <a class="navbar-item">
-                Detail
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="navbar-brand" id="navMenu">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-item nav-tag" href="#">
-              SK Masuk
-            </a>
-          </div>
-        </div>
-
         <div class="navbar-menu navbar-end" id="navMenu">
           <a class="navbar-item nav-tag">
             <span class="icon is-medium">
@@ -202,14 +174,7 @@
         <div class="level">
           <div class="level-left">
             <div class="level-item">
-              <div class="title">Dashboard</div>
-            </div>
-          </div>
-          <div class="level-right">
-            <div class="level-item">
-              <button type="button" class="button is-small">
-                26 November, 2017 - 15 Desember, 2017
-              </button>
+              <div class="title">Dashboard Admin</div>
             </div>
           </div>
         </div>
@@ -255,8 +220,8 @@
                           <div class="">
                             <div class="heading">Iuran Masuk</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $dibayar = 0;
                               $target = 0;
 
@@ -266,8 +231,8 @@
                               }
 
                               echo ($dibayar / $target) * 100;
-                            ?>%
-                            
+                              ?>%
+
                             </div>
                           </div>
                         </div>
@@ -275,8 +240,8 @@
                           <div class="">
                             <div class="heading">Total Uang</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $jumlah = 0;
 
                               foreach($query as $row) {
@@ -284,8 +249,8 @@
                               }
 
                               echo $jumlah;
-                            ?>
-                            
+                              ?>
+
                             </div>
                           </div>
                         </div>
@@ -293,8 +258,8 @@
                           <div class="">
                             <div class="heading">Instansi Lunas</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $jumlah = 0;
 
                               foreach($query as $row) {
@@ -304,7 +269,7 @@
                               }
 
                               echo $jumlah;
-                            ?>
+                              ?>
 
                             </div>
                           </div>
@@ -338,9 +303,9 @@
                     $tampung = ($dibayar / $target) * 100;
 
                     if($tampung >= 70) {?>
-                      <font color="green">Aman</font>
+                    <font color="green">Aman</font>
                     <?php } else { ?>
-                      <font color="red">Tidak Aman</font>
+                    <font color="red">Tidak Aman</font>
                     <?php }
                     ?></p>
                   </div>
@@ -351,8 +316,8 @@
                           <div class="">
                             <div class="heading">Belum Masuk</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $dibayar = 0;
                               $target = 0;
 
@@ -362,8 +327,8 @@
                               }
 
                               echo (1 - ($dibayar / $target)) * 100;
-                            ?>%
-                            
+                              ?>%
+
                             </div>
                           </div>
                         </div>
@@ -371,8 +336,8 @@
                           <div class="">
                             <div class="heading">Total Uang</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $dibayar = 0;
                               $target = 0;
 
@@ -382,8 +347,8 @@
                               }
 
                               echo $target - $dibayar;
-                            ?>
-                            
+                              ?>
+
                             </div>
                           </div>
                         </div>
@@ -391,8 +356,8 @@
                           <div class="">
                             <div class="heading">Nunggak</div>
                             <div class="title is-5">
-                            
-                            <?php
+
+                              <?php
                               $jumlah = 0;
 
                               foreach($query as $row) {
@@ -402,8 +367,8 @@
                               }
 
                               echo $jumlah;
-                            ?>
-                            
+                              ?>
+
                             </div>
                           </div>
                         </div>
@@ -416,27 +381,27 @@
                 <div class="columns" style="width:100%; text-align:center; color:white">
                   <div class="column is-6">
                     Sudah Iuran | <?php
-                              $jumlah = 0;
+                    $jumlah = 0;
 
-                              foreach($query as $row) {
-                                  $jumlah = $jumlah + count($row->id_instansi);
-                              }
+                    foreach($query as $row) {
+                      $jumlah = $jumlah + count($row->id_instansi);
+                    }
 
-                              echo $jumlah;
-                            ?> Jiwa
+                    echo $jumlah;
+                    ?> Jiwa
                   </div>
                   <div class="column is-6">
                     Belum Iuran | <?php
-                              $jumlah = 0;
+                    $jumlah = 0;
 
-                              foreach($query as $row) {
-                                if($row->iuran_dibayar == 0) {
-                                  $jumlah = $jumlah + count($row->id_instansi);
-                                }
-                              }
+                    foreach($query as $row) {
+                      if($row->iuran_dibayar == 0) {
+                        $jumlah = $jumlah + count($row->id_instansi);
+                      }
+                    }
 
-                              echo $jumlah;
-                            ?> Jiwa
+                    echo $jumlah;
+                    ?> Jiwa
                   </div>
                 </div>
               </div>
@@ -454,27 +419,27 @@
                     <div class="track">
                       <div class="goal">
                         <div class="amount"> <?php
-                              $jumlah = 0;
+                        $jumlah = 0;
 
-                              foreach($query2 as $row2) {
-                                $jumlah = $jumlah + count($row2->status_proses);
-                              }
+                        foreach($query2 as $row2) {
+                          $jumlah = $jumlah + count($row2->status_proses);
+                        }
 
-                              echo $jumlah;
-                            ?> </div>
+                        echo $jumlah;
+                        ?> </div>
                       </div>
                       <div class="progressb">
                         <div class="amount"> <?php
-                              $jumlah = 0;
+                        $jumlah = 0;
 
-                              foreach($query2 as $row2) {
-                                if($row2->status_proses == "selesai") {
-                                  $jumlah = $jumlah + count($row2->status_proses);
-                                }
-                              }
+                        foreach($query2 as $row2) {
+                          if($row2->status_proses == "selesai") {
+                            $jumlah = $jumlah + count($row2->status_proses);
+                          }
+                        }
 
-                              echo $jumlah;
-                            ?> </div>
+                        echo $jumlah;
+                        ?> </div>
                       </div>
                     </div>
                   </div>
@@ -484,16 +449,16 @@
                 <div class="columns" style="width:100%; color:white">
                   <div class="column is-12">
                     Sisa SK :  <?php
-                              $jumlah = 0;
+                    $jumlah = 0;
 
-                              foreach($query2 as $row2) {
-                                if($row2->status_proses == "sedang diproses" || $row2->status_proses == "belum diproses") {
-                                  $jumlah = $jumlah + count($row2->status_proses);
-                                }
-                              }
+                    foreach($query2 as $row2) {
+                      if($row2->status_proses == "sedang diproses" || $row2->status_proses == "belum diproses") {
+                        $jumlah = $jumlah + count($row2->status_proses);
+                      }
+                    }
 
-                              echo $jumlah;
-                            ?>  SK
+                    echo $jumlah;
+                    ?>  SK
                   </div>
                 </div>
               </div>
@@ -502,23 +467,95 @@
           <div class="column is-6">
             <div class="panel">
               <div class="panel-block" style="width:100%">
-                <p style="text-align:left; width:100%">Tangguhan | <font color="green">3.54 Bulan</font></p>
+                <p style="text-align:left; width:100%">Tangguhan | Rata-rata Tangguhan : <font color="<?php
+                $jumlah = 0;
+                $total_orang = 0;
+                foreach($query3 as $row) {
+                  $date1 = strtotime($row->tgl_awal_tangguhan);
+                  $date2 = strtotime(date('Y-m-d'));
+                  $jumlah = $date2 - $date1;
+                  $days = $jumlah / 86400;
+                  $months = $days / 30;
+                }
+                if($months <= 6) {
+                  echo "green";
+                }else if($months > 6 && $months <= 12) {
+                  echo "orange";
+                }else if($months > 12) {
+                  echo "red";
+                }
+                ?>"><?php
+                $jumlah = 0;
+                $total_orang = 0;
+                $total_bulan = 0;
+                foreach($query3 as $row) {
+                  $date1 = strtotime($row->tgl_awal_tangguhan);
+                  $date2 = strtotime(date('Y-m-d'));
+                  $jumlah = $date2 - $date1;
+                  $days = $jumlah / 86400;
+                  $months = $days / 30;
+                  $total_bulan = $total_bulan + $months;
+                  $total_orang = $total_orang + count($row->nik);
+                }
+                echo $total_bulan/$total_orang;
+                ?> Bulan</font></p>
                 <a href="<?php echo base_url(); ?>index.php/rute/tangguhan" class="button is-link" style="">Detail</a>
               </div>
               <div class="panel-block" style="width:100%">
                 <canvas id="myChart" height="142px"></canvas>
-                <div id="myChart"></div>
               </div>
               <div class="panel-block" style="width:100%; background:blue">
                 <div class="columns" style="width:100%; text-align:center; color:white">
                   <div class="column is-4">
-                    1 - 6 Bulan | 116 Jiwa
+                    1 - 6 Bulan | <?php
+                    $jumlah = 0;
+                    $total_orang = 0;
+                    foreach($query3 as $row) {
+                      $date1 = strtotime($row->tgl_awal_tangguhan);
+                      $date2 = strtotime(date('Y-m-d'));
+                      $jumlah = $date2 - $date1;
+                      $days = $jumlah / 86400;
+                      $months = $days / 30;
+                      if($months <= 6 && $months > 0) {
+                        $total_orang = $total_orang + count($row->nik);
+                      }
+                    }
+                    echo $total_orang;
+                    ?> Jiwa
                   </div>
                   <div class="column is-4">
-                    6 - 12 Bulan | 28 Jiwa
+                    6 - 12 Bulan | <?php
+                    $jumlah = 0;
+                    $total_orang = 0;
+                    foreach($query3 as $row) {
+                      $date1 = strtotime($row->tgl_awal_tangguhan);
+                      $date2 = strtotime(date('Y-m-d'));
+                      $jumlah = $date2 - $date1;
+                      $days = $jumlah / 86400;
+                      $months = $days / 30;
+                      if($months > 6 && $months <= 12) {
+                        $total_orang = $total_orang + count($row->nik);
+                      }
+                    }
+                    echo $total_orang;
+                    ?> Jiwa
                   </div>
                   <div class="column is-4">
-                    12 Bulan ++ | 46 Jiwa
+                    12 Bulan ++ | <?php
+                    $jumlah = 0;
+                    $total_orang = 0;
+                    foreach($query3 as $row) {
+                      $date1 = strtotime($row->tgl_awal_tangguhan);
+                      $date2 = strtotime(date('Y-m-d'));
+                      $jumlah = $date2 - $date1;
+                      $days = $jumlah / 86400;
+                      $months = $days / 30;
+                      if($months > 12) {
+                        $total_orang = $total_orang + count($row->nik);
+                      }
+                    }
+                    echo $total_orang;
+                    ?> Jiwa
                   </div>
                 </div>
               </div>
@@ -643,48 +680,152 @@
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';">100%</p>
+                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    $total1 = 0;
+                    $total2 = 0;
+                    $jumlah = 0;
+                    foreach($query5 as $row) {
+                      if($row->status_kunjungan_sem1 == "sudah") {
+                        $total1 = $total1 + count($row->nik);
+                      }
+                      $total2 = $total2 + count($row->nik);
+                    }
+                    $jumlah = ($total1/$total2)*100;
+                    echo $jumlah;
+                     ?>%</p>
                   </div>
                   <div class="column is-6" style="text-align: left; margin-top: 20px;">
                     <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">Datul Sem-1</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : 28.598</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Target : 30.000</p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : <?php 
+                    $total = 0;
+                    foreach($query5 as $row) {
+                      if($row->status_kunjungan_sem1 == "sudah") {
+                        $total = $total + count($row->nik);
+                      }
+                    }
+                    echo $total;
+                     ?></p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Target : <?php 
+                    $total = 0;
+                    foreach($query5 as $row) {
+                      $total = $total + count($row->nik);
+                    }
+                    echo $total;
+                     ?></p>
                   </div>
                 </div>
               </div>
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';">100%</p>
+                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    $total1 = 0;
+                    $total2 = 0;
+                    $jumlah = 0;
+                    foreach($query4 as $row) {
+                      if($row->status_kunjungan_sem1 == "sudah") {
+                        $total1 = $total1 + count($row->nik);
+                      }
+                      $total2 = $total2 + count($row->nik);
+                    }
+                    $jumlah = ($total1/$total2)*100;
+                    echo $jumlah;
+                     ?>%</p>
                   </div>
                   <div class="column is-6" style="text-align: left; margin-top: 20px;">
-                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">Datul Sem-1</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : 28.598</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Target : 30.000</p>
+                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">HV Sem-1</p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : <?php 
+                    $total = 0;
+                    foreach($query4 as $row) {
+                      if($row->status_kunjungan_sem1 == "sudah") {
+                        $total = $total + count($row->nik);
+                      }
+                    }
+                    echo $total;
+                     ?></p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Target : <?php 
+                    $total = 0;
+                    foreach($query4 as $row) {
+                      $total = $total + count($row->nik);
+                    }
+                    echo $total;
+                     ?></p>
                   </div>
                 </div>
               </div>
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';">100%</p>
+                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    $total1 = 0;
+                    $total2 = 0;
+                    $jumlah = 0;
+                    foreach($query5 as $row) {
+                      if($row->status_kunjungan_sem2 == "sudah") {
+                        $total1 = $total1 + count($row->nik);
+                      }
+                      $total2 = $total2 + count($row->nik);
+                    }
+                    $jumlah = ($total1/$total2)*100;
+                    echo $jumlah;
+                     ?>%</p>
                   </div>
                   <div class="column is-6" style="text-align: left; margin-top: 20px;">
-                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">Datul Sem-1</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : 28.598</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Target : 30.000</p>
+                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">Datul Sem-2</p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : <?php 
+                    $total = 0;
+                    foreach($query5 as $row) {
+                      if($row->status_kunjungan_sem2 == "sudah") {
+                        $total = $total + count($row->nik);
+                      }
+                    }
+                    echo $total;
+                     ?></p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Target : <?php 
+                    $total = 0;
+                    foreach($query5 as $row) {
+                      $total = $total + count($row->nik);
+                    }
+                    echo $total;
+                     ?></p>
                   </div>
                 </div>
               </div>
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';">100%</p>
+                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    $total1 = 0;
+                    $total2 = 0;
+                    $jumlah = 0;
+                    foreach($query4 as $row) {
+                      if($row->status_kunjungan_sem2 == "sudah") {
+                        $total1 = $total1 + count($row->nik);
+                      }
+                      $total2 = $total2 + count($row->nik);
+                    }
+                    $jumlah = ($total1/$total2)*100;
+                    echo $jumlah;
+                     ?>%</p>
                   </div>
                   <div class="column is-6" style="text-align: left; margin-top: 20px;">
-                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">Datul Sem-1</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : 28.598</p>
-                    <p style="font-size: 16px; font-family: 'Lato';">Target : 30.000</p>
+                    <p style="font-size: 20px; font-family: 'Lato'; font-weight: bold;">HV Sem-1</p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Tercapai : <?php 
+                    $total = 0;
+                    foreach($query4 as $row) {
+                      if($row->status_kunjungan_sem2 == "sudah") {
+                        $total = $total + count($row->nik);
+                      }
+                    }
+                    echo $total;
+                     ?></p>
+                    <p style="font-size: 16px; font-family: 'Lato';">Target : <?php 
+                    $total = 0;
+                    foreach($query4 as $row) {
+                      $total = $total + count($row->nik);
+                    }
+                    echo $total;
+                     ?></p>
                   </div>
                 </div>
               </div>
@@ -702,25 +843,62 @@
     <script src="/bulma-admin-dashboard-template/dist/build.js"></script>
 
     <script src="<?php echo base_url();?>js/bar_sk.js"></script>
-    <script src="<?php echo base_url();?>js/chart_pensiun.js"></script>
+    <script>
+      <?php
+      $jumlah = 0;
+      $total_orang1 = 0;
+      $total_orang2 = 0;
+      $total_orang3 = 0;
+      foreach($query3 as $row) {
+        $date1 = strtotime($row->tgl_awal_tangguhan);
+        $date2 = strtotime(date('Y-m-d'));
+        $jumlah = $date2 - $date1;
+        $days = $jumlah / 86400;
+        $months = $days / 30;
+        if($months <= 6 && $months > 0) {
+          $total_orang1 = $total_orang + count($row->nik);
+        }else if($months <= 12 && $months > 6) {
+          $total_orang2 = $total_orang + count($row->nik);
+        }else if($months > 12) {
+          $total_orang3 = $total_orang + count($row->nik);
+        }
+      }
+      ?>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+          // The type of chart we want to create
+          type: 'horizontalBar',
+
+          // The data for our dataset
+          data: {
+              labels: ["1 - 6 Bulan", "6 - 12 Bulan", "12 Bulan ++"],
+              datasets: [{
+                  label: "Pensiunan yang Ditangguhkan",
+                  borderColor: ['rgb(0, 255, 0)', 'rgb(255, 255, 0)', 'rgb(255, 0, 0)'],
+                  backgroundColor: ['rgb(0, 255, 0)', 'rgb(255, 255, 0)', 'rgb(255, 0, 0)'],
+                  data: [<?php echo $total_orang1; ?>, <?php echo $total_orang2; ?>, <?php echo $total_orang3; ?>],
+              }]
+          },
+      });
+    </script>
     <script src="<?php echo base_url();?>js/chart_atas.js"></script>
 
     <script>
-    function formatCurrency(n, c, d, t) {
-      "use strict";
+      function formatCurrency(n, c, d, t) {
+        "use strict";
 
-      var s, i, j;
+        var s, i, j;
 
-      c = isNaN(c = Math.abs(c)) ? 0 : c;
-      d = d === undefined ? "," : d;
-      t = t === undefined ? "." : t;
+        c = isNaN(c = Math.abs(c)) ? 0 : c;
+        d = d === undefined ? "," : d;
+        t = t === undefined ? "." : t;
 
-      s = n < 0 ? "-" : "";
-      i = parseInt(n = Math.abs(+n || 0).toFixed(c), 10) + "";
-      j = (j = i.length) > 3 ? j % 3 : 0;
+        s = n < 0 ? "-" : "";
+        i = parseInt(n = Math.abs(+n || 0).toFixed(c), 10) + "";
+        j = (j = i.length) > 3 ? j % 3 : 0;
 
-      return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
-    }
+        return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+      }
 
 /**
  * Thermometer Progress meter.
