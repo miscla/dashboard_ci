@@ -283,114 +283,143 @@
             </div>
           </div>
         </div>
-          <h2 style="margin-bottom:10px; margin-left:1%;">Filter</h2>
-        <div class="columns">
-        <div class="column is-6">
-          <form action="<?php echo base_url()."index.php/rute/cari_instansi"; ?>" method="POST">
-          <div class="field has-addons">
-            <div class="control" style="width:80%; margin-left:2%;">
-              <input class="input" type="text" placeholder="Cari Instansi" id="isiInstansi" name="instansi">
-            </div>
-            <div class="control">
-              <button class="button is-info" id="butInstansi">
-                Cari
-              </button>
-            </div>
-          </div>
-          </form>
-        </div>
-        <div class="column is-6">
-          <form action="<?php echo base_url()."index.php/rute/cari_nik"; ?>" method="POST">
-          <div class="field has-addons">
-            <div class="control" style="width:88%;">
-              <input class="input" type="text" placeholder="Cari NIK" name="nik">
-            </div>
-            <div class="control">
-              <a class="button is-info">
-                Cari
-              </a>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
         
+        <div class="columns is-multiline">
+          <div class="panel column is-12">
+            <div class="panel-heading">
+              <label class="label">Data Pensiunan yang Kelebihan Bayar</label>
+            </div>
+            <div class="panel-block column is-12">
+              <form method="POST" action="<?php echo base_url()."index.php/rute/kelebihan_bayar"; ?>">
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">NIK</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nik" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->nik;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-        <div class="panel column is-12">
-          <div class="panel-heading">
-            <label class="label">All Table</label>
-          </div>
-          <div class="panel-block column is-12">
-            <table id="fullfeatures" class="table is-striped is-bordered" cellspacing="0" width="100%">
-              <thead>
-                <tr>
-                  <th>NIK</th>
-                  <th>Nama Pensiun</th>
-                  <th>Instansi</th>
-                  <th>Ahli Waris</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Status Kunjungan</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                $date = strtotime(date('Y-m-d'));
-                $month = date("m", $date);
-                foreach($query as $row) {
-                  ?>
-                  <tr>
-                    <td style="padding-top:15px;"><?php echo $row->nik ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->nama_pensiun ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->instansi ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->ahli_waris ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->tgl_lahir ?></td>
-                    <td style="padding-top:15px;"><?php 
-                    if($month > 6 && $month <= 12) {
-                      echo $row->status_kunjungan_sem2;
-                    }else if($month > 0 && $month <= 6) {
-                      echo $row->status_kunjungan_sem1;
-                    } ?></td>
-                    <td style="width:200px">
-                      <a class="button is-success">Edit</a>
-                      <a class="button is-danger" href="<?php echo base_url()."index.php/rute/kelebihan_bayar_delete_hv/".$row->nik;;?>">Delete</a>
-                      <a class="button is-link" href="<?php echo base_url()."index.php/rute/kb_detail_hv/".$row->nik;;?>">Detail</a>
-                    </td>
-                  </tr>
-                  <?php
-                }
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Nama Pensiun/label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->nama_pensiun;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                ?>
-                <?php 
-                $date = strtotime(date('Y-m-d'));
-                $month = date("m", $date);
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Asal Instansi</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->instansi;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                foreach($query2 as $row) {
-                  ?>
-                  <tr>
-                    <td style="padding-top:15px;"><?php echo $row->nik ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->nama_pensiun ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->instansi ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->ahli_waris ?></td>
-                    <td style="padding-top:15px;"><?php echo $row->tgl_lahir ?></td>
-                    <td style="padding-top:15px;"><?php 
-                    if($month > 6 && $month <= 12) {
-                      echo $row->status_kunjungan_sem2;
-                    }else if($month > 0 && $month <= 6) {
-                      echo $row->status_kunjungan_sem1;
-                    } ?></td>
-                    <td style="width:200px">
-                      <a class="button is-success">Edit</a>
-                      <a class="button is-danger" href="<?php echo base_url()."index.php/rute/kelebihan_bayar_delete_datul/".$row->nik;;?>">Delete</a>
-                      <a class="button is-link" href="<?php echo base_url()."index.php/rute/kb_detail_datul/".$row->nik;;?>">Detail</a>
-                    </td>
-                  </tr>
-                  <?php
-                }
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Jumlah Ahli Waris</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->ahli_waris;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-                ?>
-              </tbody>
-            </table>
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Tanggal Lahir</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->tgl_lahir;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Status Kunjungan Sem1</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->status_kunjungan_sem1;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label">Status Kunjungan Sem2</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <p class="control is-expanded">
+                        <input class="input" type="text" readonly="true" name="nama_pensiun" value="<?php 
+                        foreach($query4 as $row) {
+                          echo $row->status_kunjungan_sem2;
+                        } ?>">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field is-horizontal">
+                  <div class="field-label">
+                    <!-- Left empty for spacing -->
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control">
+                        <button class="button is-primary">
+                          Kembali
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              
+            </div>
           </div>
         </div>
 
@@ -449,7 +478,7 @@
                 $date = strtotime(date('Y-m-d'));
                 $month = date("m", $date);
 
-                  foreach($query4 as $row) {
+                  foreach($query as $row) {
                     if($row->ahli_waris == 0) {
                       ?>
                       <tr>
@@ -475,7 +504,7 @@
                 $date = strtotime(date('Y-m-d'));
                 $month = date("m", $date);
 
-                  foreach($query5 as $row) {
+                  foreach($query2 as $row) {
                     if($row->ahli_waris == 0) {
                       ?>
                       <tr>

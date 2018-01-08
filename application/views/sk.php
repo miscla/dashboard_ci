@@ -84,29 +84,30 @@
             General
           </p>
           <ul class="menu-list">
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
-            <li><a class="is-active" href="#"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
+            <li><a href="<?php echo base_url(); ?>index.php/rute/iuran"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
+            <li><a class="is-active" href="<?php echo base_url(); ?>index.php/rute/sk"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/tangguhan"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/kelebihan_bayar"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
           </ul>
           <p class="menu-label">
             Filter Pada All Table
           </p>
           <ul class="menu-list">
+          <form action="<?php echo base_url()."index.php/rute/filter_sk"; ?>" method="POST">
             <nav class="panel">
               <a class="panel-block" style="">
                 Jenis SK
                 <div class="control" style="">
                   <div class="select is-fullwidth">
-                    <select>
-                      <option>Janda/Duda/Anak</option>
-                      <option>Normal</option>
-                      <option>Disini</option>
+                    <select name="jenis_sk">
+                      <option value="janda/duda">Janda/Duda/Anak</option>
+                      <option value="normal">Normal</option>
+                      <option value="dini">Dini</option>
                     </select>
                   </div>
                 </div>
               </a>
-              <a class="panel-block" style="">
+              <!-- <a class="panel-block" style="">
                 Rentang Batas Akhir SK
                 <div class="columns">
                   <div class="column is-12">
@@ -123,24 +124,26 @@
                     </div>
                   </div>
                 </div>
-              </a>
+              </a> -->
               <a class="panel-block" style="">
                 Status SK
                 <div class="control" style="">
                   <div class="select is-fullwidth">
-                    <select>
-                      <option>Sudah SK</option>
-                      <option>Belum SK</option>
+                    <select name="status_sk">
+                      <option value="selesai">Sudah SK</option>
+                      <option value="sedang diproses">SK Sedang Diproses</option>
+                      <option value="belum diproses">Belum SK</option>
                     </select>
                   </div>
                 </div>
               </a>
               <div class="panel-block">
-                <button class="button is-link is-outlined is-fullwidth">
+                <button class="button is-link is-outlined is-fullwidth" type="submit">
                   Filter
                 </button>
               </div>
             </nav>
+            </form>
           </ul>
         </nav>
       </aside>
@@ -223,12 +226,12 @@
           </div>
           <div class="column" style="text-align:center">
             <div class="box notification is-warning">
-              <div class="heading">Pensiun Diri</div>
+              <div class="heading">Pensiun dini</div>
               <div class="title">
                 <?php
                 $jumlah = 0;
                 foreach($query as $row) {
-                  if($row->jenis_sk == "diri") {
+                  if($row->jenis_sk == "dini") {
                     $jumlah = $jumlah + count($row->nik);
                   }
                 } 
@@ -243,7 +246,7 @@
                       <?php
                       $jumlah = 0;
                       foreach($query as $row) {
-                        if($row->status_proses == "selesai" && $row->jenis_sk == "diri") {
+                        if($row->status_proses == "selesai" && $row->jenis_sk == "dini") {
                           $jumlah = $jumlah + count($row->nik);
                         }
                       } 
@@ -259,7 +262,7 @@
                       <?php
                       $jumlah = 0;
                       foreach($query as $row) {
-                        if($row->status_proses == "sedang diproses" && $row->jenis_sk == "diri") {
+                        if($row->status_proses == "sedang diproses" && $row->jenis_sk == "dini") {
                           $jumlah = $jumlah + count($row->nik);
                         }
                       } 
@@ -275,7 +278,7 @@
                       <?php
                       $jumlah = 0;
                       foreach($query as $row) {
-                        if($row->status_proses == "belum diproses" && $row->jenis_sk == "diri") {
+                        if($row->status_proses == "belum diproses" && $row->jenis_sk == "dini") {
                           $jumlah = $jumlah + count($row->nik);
                         }
                       } 
@@ -374,7 +377,7 @@
                 <tbody>
                   <?php 
 
-                  foreach($query as $row) {
+                  foreach($query2 as $row) {
                     ?>
                     <tr>
                       <td><?php echo $row->nama_pensiun ?></td>

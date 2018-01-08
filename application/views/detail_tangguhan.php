@@ -233,97 +233,52 @@
             Filter Pada All Table
           </p>
           <ul class="menu-list">
-            <nav class="panel">
-              <a class="panel-block" style="">
-                Jenis Tangguhan
-                <div class="control" style="">
-                  <div class="select is-fullwidth">
-                    <select>
-                      <option>Janda/Duda/Anak</option>
-                      <option>Pensiunan Ilang</option>
-                      <option>Dll</option>
-                    </select>
-                  </div>
+          <form action="<?php echo base_url()."index.php/rute/filter_tangguhan"; ?>" method="POST">
+          <nav class="panel">
+            <a class="panel-block" style="">
+              Jenis Tangguhan
+              <div class="control" style="">
+                <div class="select is-fullwidth">
+                  <select name="jenis_tangguhan">
+                    <option value="janda/duda">Janda/Duda/Anak</option>
+                    <option value="pensiunan ilang">Pensiunan Ilang</option>
+                    <option value="dll">Dll</option>
+                  </select>
                 </div>
-              </a>
-              <a class="panel-block" style="">
-                Rentang Total Manfaat
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p style="margin-top:-15px; margin-bottom:10px;">Sampai</p>
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a class="panel-block" style="">
-                Rentang Manfaat Per-Bulan
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p style="margin-top:-15px; margin-bottom:10px;">Sampai</p>
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div class="panel-block">
-                <button class="button is-link is-outlined is-fullwidth">
-                  Filter
-                </button>
               </div>
-            </nav>
+            </a>
+            <a class="panel-block" style="">
+              Maksimum Total Manfaat
+              <div class="columns">
+                <div class="column is-12">
+                  <div class="field has-addons">
+                    <p class="control">
+                      <span class="select">
+                        <select>
+                          <option>Rp.</option>
+                        </select>
+                      </span>
+                    </p>
+                    <p class="control">
+                      <input class="input" type="number" placeholder="Jumlah Uang" name="total_maximum" value="<?php 
+
+                foreach($query3 as $row) {
+                  echo $row->total_manfaat_ditangguhkan;
+                }
+
+                ?>">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div class="panel-block">
+              <button class="button is-link is-outlined is-fullwidth">
+                Filter
+              </button>
+            </div>
+          </nav>
+          </form>
           </ul>
         </nav>
       </aside>
@@ -344,7 +299,7 @@
               <div class="title">
                 <?php
                 $jumlah = 0;
-                foreach($query as $row) {
+                foreach($query2 as $row) {
                   if($row->jenis_tangguhan == "janda/duda") {
                     $jumlah = $jumlah + count($row->nik);
                   }
@@ -360,7 +315,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "janda/duda") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -384,7 +339,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "janda/duda") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -408,7 +363,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "janda/duda") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -434,7 +389,7 @@
               <div class="title">
                 <?php
                 $jumlah = 0;
-                foreach($query as $row) {
+                foreach($query2 as $row) {
                   if($row->jenis_tangguhan == "pensiunan ilang") {
                     $jumlah = $jumlah + count($row->nik);
                   }
@@ -450,7 +405,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "pensiunan ilang") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -474,7 +429,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "pensiunan ilang") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -498,7 +453,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "pensiunan ilang") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -524,7 +479,7 @@
               <div class="title">
                 <?php
                 $jumlah = 0;
-                foreach($query as $row) {
+                foreach($query2 as $row) {
                   if($row->jenis_tangguhan == "dll") {
                     $jumlah = $jumlah + count($row->nik);
                   }
@@ -540,7 +495,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "dll") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -564,7 +519,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "dll") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));
@@ -588,7 +543,7 @@
                       <?php
                       $jumlah = 0;
                       $total_orang = 0;
-                      foreach($query as $row) {
+                      foreach($query2 as $row) {
                         if($row->jenis_tangguhan == "dll") {
                           $date1 = strtotime($row->tgl_awal_tangguhan);
                           $date2 = strtotime(date('Y-m-d'));

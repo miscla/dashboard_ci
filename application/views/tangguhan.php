@@ -224,30 +224,31 @@
             General
           </p>
           <ul class="menu-list">
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
-            <li><a class="" href="#"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
-            <li><a class="is-active" href="#"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
+            <li><a href="<?php echo base_url(); ?>index.php/rute/iuran"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/sk"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
+            <li><a class="is-active" href="<?php echo base_url(); ?>index.php/rute/tangguhan"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/kelebihan_bayar"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
           </ul>
           <p class="menu-label">
             Filter Pada All Table
           </p>
           <ul class="menu-list">
+          <form action="<?php echo base_url()."index.php/rute/filter_tangguhan"; ?>" method="POST">
             <nav class="panel">
               <a class="panel-block" style="">
                 Jenis Tangguhan
                 <div class="control" style="">
                   <div class="select is-fullwidth">
-                    <select>
-                      <option>Janda/Duda/Anak</option>
-                      <option>Pensiunan Ilang</option>
-                      <option>Dll</option>
+                    <select name="jenis_tangguhan">
+                      <option value="janda/duda">Janda/Duda/Anak</option>
+                      <option value="pensiunan ilang">Pensiunan Ilang</option>
+                      <option value="dll">Dll</option>
                     </select>
                   </div>
                 </div>
               </a>
               <a class="panel-block" style="">
-                Rentang Total Manfaat
+                Maksimum Total Manfaat
                 <div class="columns">
                   <div class="column is-12">
                     <div class="field has-addons">
@@ -259,60 +260,13 @@
                         </span>
                       </p>
                       <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p style="margin-top:-15px; margin-bottom:10px;">Sampai</p>
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a class="panel-block" style="">
-                Rentang Manfaat Per-Bulan
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <p style="margin-top:-15px; margin-bottom:10px;">Sampai</p>
-                <div class="columns">
-                  <div class="column is-12">
-                    <div class="field has-addons">
-                      <p class="control">
-                        <span class="select">
-                          <select>
-                            <option>Rp.</option>
-                          </select>
-                        </span>
-                      </p>
-                      <p class="control">
-                        <input class="input" type="text" placeholder="Jumlah Uang">
+                        <input class="input" type="number" placeholder="Jumlah Uang" name="total_maximum" value="<?php 
+
+                  foreach($query3 as $row) {
+                    echo $row->total_manfaat_ditangguhkan;
+                  }
+
+                  ?>">
                       </p>
                     </div>
                   </div>
@@ -324,6 +278,7 @@
                 </button>
               </div>
             </nav>
+            </form>
           </ul>
         </nav>
       </aside>
@@ -631,7 +586,7 @@
                     <?php
                               $total = 0;
 
-                              foreach($query as $row) {
+                              foreach($query2 as $row) {
                                 $total = $total + $row->total_manfaat_ditangguhkan;
                               }
                               ?>
@@ -641,7 +596,7 @@
                 <tbody>
                   <?php 
 
-                  foreach($query as $row) {
+                  foreach($query2 as $row) {
                     ?>
                     <tr>
                       <td style="padding-top:15px;"><?php echo $row->nama_pensiun ?></td>

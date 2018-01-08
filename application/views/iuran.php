@@ -87,10 +87,10 @@
             General
           </p>
           <ul class="menu-list">
-            <li><a class="is-active" href="#"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
-            <li><a href="#"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
+            <li><a class="is-active" href="<?php echo base_url(); ?>index.php/rute/iuran"><span class="icon is-small"><i class="fa fa-tachometer"></i></span> Iuran</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/sk"><span class="icon is-small"><i class="fa fa-pencil-square-o"></i></span> SK Masuk</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/tangguhan"><span class="icon is-small"><i class="fa fa-desktop"></i></span> Tangguhan</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/rute/kelebihan_bayar"><span class="icon is-small"><i class="fa fa-table"></i></span> Kelebihan Bayar</a></li>  
           </ul>
           <p class="menu-label">
             Filter Pada All Table
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </a>
-                <a class="panel-block" style="">
+                <!-- <a class="panel-block" style="">
                     Rentang Terakhir Setoran
                     <div class="columns">
                         <div class="column is-12">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </a> -->
                 <div class="panel-block">
                     <button class="button is-link is-outlined is-fullwidth" type="submit">
                     Filter
@@ -266,52 +266,6 @@
                 </div>
             </div>
           </div>
-
-          <div class="column is-12">
-              <div class="columns">
-                <div class="column is-2">
-                    <h2 style="font-weight:bold">History Nunggak</h2>
-                </div>
-                <div class="column is-10">
-                    <div class="field has-addons">
-                        <div class="control is-expanded">
-                            <div class="select is-fullwidth">
-                                <select name="tahun">
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="control">
-                            <button type="submit" class="button is-primary">Pilih</button>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            <canvas id="chartNunggak" style=""></canvas>
-            
-            <div id="chartNunggak" class="chartNunggak"></div>
-
-             <!-- <div id="wizard" class="swMain" style="visibility:hidden">
-                <div class="panel-heading">
-                    BOTTOM 10
-                </div>
-                <div class="panel-block" style="width:100%;">
-                    <table id="monthlyData" class="table is-striped is-bordered" cellspacing="0" width="(100/x)%" style="margin-left:0px; margin-bottom:-10px;">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tableData">
-                        </tbody>
-                    </table>
-                </div>
-             </div> -->
       </main>
     </div>
   </div>

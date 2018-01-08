@@ -109,9 +109,8 @@
 
 
 .progress2 {
-  background: #34495e;
+  background: #00FF00;
   border-radius: 50%;
-  border: 2px solid #34495e;
   overflow: hidden;
   width: 150px;
   height: 150px;
@@ -680,7 +679,7 @@
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    <p style="color: #000000; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
                     $total1 = 0;
                     $total2 = 0;
                     $jumlah = 0;
@@ -718,7 +717,7 @@
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    <p style="color: #000000; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
                     $total1 = 0;
                     $total2 = 0;
                     $jumlah = 0;
@@ -756,7 +755,7 @@
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    <p style="color: #000000; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
                     $total1 = 0;
                     $total2 = 0;
                     $jumlah = 0;
@@ -794,7 +793,7 @@
               <div class="column is-3" style="text-align:center;">
                 <div class="columns">
                   <div class='progress2 column is-6'>
-                    <p style="color: red; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
+                    <p style="color: #000000; font-size: 30px; margin-top: 30%;  font-family: 'Lato';"><?php 
                     $total1 = 0;
                     $total2 = 0;
                     $jumlah = 0;
